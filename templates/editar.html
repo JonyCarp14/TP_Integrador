@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar estudiante{% endblock %}
+
+{% block content %}
+<h1>Editar estudiante</h1>
+
+<form class="form-card" method="POST">
+    <label>DNI *</label>
+    <input type="text" name="dni" value="{{ estudiante.dni }}" required>
+
+    <label>Apellido *</label>
+    <input type="text" name="apellido" value="{{ estudiante.apellido }}" required>
+
+    <label>Nombre *</label>
+    <input type="text" name="nombre" value="{{ estudiante.nombre }}" required>
+
+    <label>Email</label>
+    <input type="email" name="email" value="{{ estudiante.email }}">
+
+    <label>Carrera</label>
+    <input type="text" name="carrera" value="{{ estudiante.carrera }}">
+
+    <label>Telefono</label>
+    <input type="int" name="telefono" value="{{ estudiante.telefono }}">
+
+    <label>Edad</label>
+    <input type="int" name="edad" value="{{ estudiante.edad }}">
+
+    <button type="submit">Actualizar</button>
+    <a class="btn secondary" href="{{ url_for('index') }}">Volver</a>
+</form>
+{% endblock %}

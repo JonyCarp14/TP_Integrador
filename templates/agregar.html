@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Agregar estudiante{% endblock %}
+
+{% block content %}
+<h1>Agregar estudiante</h1>
+
+<form class="form-card" method="POST">
+    <label>DNI *</label>
+    <input type="text" name="dni" required>
+
+    <label>Apellido *</label>
+    <input type="text" name="apellido" required>
+
+    <label>Nombre *</label>
+    <input type="text" name="nombre" required>
+
+    <label>Email</label>
+    <input type="email" name="email">
+
+    <label>Carrera</label>
+    <input type="text" name="carrera">
+
+    <label>Telefono</label>
+    <input type="int" name="telefono">
+
+    <label>Edad</label>
+    <input type="int" name="edad">
+
+    <button type="submit">Guardar</button>
+    <a class="btn secondary" href="{{ url_for('index') }}">Volver</a>
+</form>
+{% endblock %}

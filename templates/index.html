@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Listado de estudiantes{% endblock %}
+
+{% block content %}
+<h1>Sistema de Gestión de Estudiantes</h1>
+<p class="subtitle">CRUD con Flask + PostgreSQL</p>
+
+<div class="actions">
+    <a class="btn" href="{{ url_for('agregar') }}">Agregar estudiante</a>
+    <a class="btn secondary" href="{{ url_for('index') }}">Ver todos</a>
+</div>
+
+<div class="ordenamiento-opciones" style="margin: 15px 0;">
+    <strong>Ordenar lista por:</strong><br>
+    <a href="{{ url_for('index', orden='apellido') }}" class="btn">Apellido</a><br><br>
+    <a href="{{ url_for('index', orden='carrera') }}" class="btn">Carrera</a><br><br>
+    <a href="{{ url_for('index', orden='fecha') }}" class="btn">Fecha de Registro</a>
+</div>
+
+<form class="search" action="{{ url_for('buscar') }}" method="POST">
+    <input type="text" name="buscar" placeholder="Buscar por DNI, apellido o nombre" value="{{ busqueda or '' }}">
+    <button type="submit" class="btn secondary">Buscar</button>
+</form>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>DNI</th>
+            <th>Apellido</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Carrera</th>
+            <th>Telefono</th>
+            <th>Edad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for estudiante in estudiantes %}
+        <tr>
+            <td>{{ estudiante.id }}</td>
+            <td>{{ estudiante.dni }}</td>
+            <td>{{ estudiante.apellido }}</td>
+            <td>{{ estudiante.nombre }}</td>
+            <td>{{ estudiante.email }}</td>
+            <td>{{ estudiante.carrera }}</td>
+            <td>{{ estudiante.telefono }}</td>
+            <td>{{ estudiante.edad }}</td>
+            <td>
+                <a class="link edit" href="{{ url_for('editar', id=estudiante.id) }}">Editar</a>
+                <a class="link delete" href="{{ url_for('eliminar', id=estudiante.id) }}" onclick="return confirm('¿Seguro que desea eliminar este estudiante?')">Eliminar</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="7" class="empty">No hay estudiantes cargados.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div>
+    <br>
+    <a href="{{ url_for('about') }}" class="btn secondary">Acerca de</a>
+</div>
+{% endblock %}

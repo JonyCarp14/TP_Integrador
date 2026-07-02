@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca del Sistema</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container" 
+        <h2>Acerca del Sistema</h2>
+        <p>Este es un sistema de gestión escolar desarrollado como proyecto práctico para el control y registro de estudiantes, permitiendo realizar operaciones CRUD completas.</p>
+        <p>Este proyecto fue creado por Jonathan Acevedo</p>
+        <h3>Tecnologías Utilizadas:</h3>
+        <ul>
+            {% for tech in tecnologias %}
+                <li>{{ tech }}</li>
+            {% endfor %}
+        </ul>
+        
+        <hr style="border: 1; border-top: 2px solid #eee; margin: 20px 0;">
+        <div>
+        <a href="{{ url_for('index') }}" class="btn secondary">Volver al Inicio</a>
+        </div>
+    </div>
+</body>
+</html>
