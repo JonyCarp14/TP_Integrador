@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
     font-style: italic;
     background: linear-gradient(to right, #121fca, hsl(249, 90%, 27%));
     margin: 1;
@@ -48,7 +48,7 @@ button:hover
 }
 
 .secondary {
-    background: #3662c2e7;
+    background: #3286f3e7;
 }
 
 .search input {
