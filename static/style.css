@@ -32,7 +32,7 @@ h1 {
 
 .btn, button {
     display: inline-block;
-    background: linear-gradient(to right, #7f59e6c7, hsl(256, 73%, 51%));
+    background: linear-gradient(to right, #b961dbc7, hsl(256, 85%, 48%));
     color: #ffffff !important;
     padding: 10px 14px;
     border: none;
